@@ -21,14 +21,11 @@ void header(){
 void menu_nav(int pilih){
 	char *menu_arr[] = {"[1].LCR ","[2].LBB ","[3].SPAREPART ","[4].TOOLS ","[5].HOME "};
 	char keluar[]= "[0].KELUAR ";
-	char warna_O[]= "\033[1;33m";
-	char warna_C[]= "\033[0m";
-
 	int ukuran_array = sizeof(menu_arr) / sizeof(menu_arr[0]);
 	
 	for(int i = 0; i < ukuran_array ; ++i){
 		if(i == pilih -1){
-			printf("%s%s%s", warna_O, menu_arr[i], warna_C);
+			printf("\033[1;33m%s\033[0m",menu_arr[i]);
 		}
 		else{
 			printf("\033[1;37m%s\033[0m", menu_arr[i]);
