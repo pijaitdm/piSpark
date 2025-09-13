@@ -47,8 +47,7 @@ void menu_utama(){
 
 	int batasan_input = 3;
 	int pilihan = 0;
-	header();
-	menu_nav(pilihan);
+	menu_pilih(pilihan);
 	do{
 
 		cetak("Pilih Menu : ", "angka");
