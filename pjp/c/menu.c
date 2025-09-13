@@ -36,6 +36,12 @@ void menu_nav(int pilih){
 	printf("\n \n");
 }
 
+void menu_pilih(int pilihan_menu){
+	clear_screen();
+	header();
+	menu_nav(pilihan_menu);
+}
+
 void menu_utama(){
 
 
@@ -62,40 +68,30 @@ void menu_utama(){
 		switch(pilih_menu){
 			case 1 :
 				pilihan = 1;
-				clear_screen();
-				header();
-				menu_nav(pilihan);
+				menu_pilih(pilihan);
 				printf("INI MENU 1\n");
 				break;
 			case 2 :
 				pilihan = 2;
-				clear_screen();
-				header();
-				menu_nav(pilihan);
+				menu_pilih(pilihan);
 				printf("INI MENU 2\n");
 				break;
 			case 3 :
 				pilihan = 3;
-				clear_screen();
-				header();
-				menu_nav(pilihan);
+				menu_pilih(pilihan);
 				printf("INI MENU 3\n");
 				break;
 			case 4 :
 				pilihan = 4;
-				clear_screen();
-				header();
-				menu_nav(pilihan);
+				menu_pilih(pilihan);
 				printf("INI MENU 4\n");
 				break;
 			case 5 :
 				pilihan = 5;
-				clear_screen();
-				header();
-				menu_nav(pilihan);
+				menu_pilih(pilihan);
 				printf("INI MENU 5\n");
 				break;					
 		}
-		pilihan = pilih_menu;
+
 		}while(batasan_input != 0);
 }
