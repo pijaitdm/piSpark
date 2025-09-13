@@ -24,8 +24,6 @@ void menu_nav(int pilih){
 	char warna_O[]= "\033[1;33m";
 	char warna_C[]= "\033[0m";
 
-
-
 	int ukuran_array = sizeof(menu_arr) / sizeof(menu_arr[0]);
 	
 	for(int i = 0; i < ukuran_array ; ++i){
