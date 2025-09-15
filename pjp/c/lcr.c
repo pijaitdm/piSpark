@@ -43,14 +43,12 @@ int pilih_lcr = input_angka();
 
 	switch(pilih_lcr){
 		case 1 : {
-			menu_nav(1);
 			menu_pilih_lcr(1);
 			printf("TODO INPUT UE LCR\n");
 			break;
 		}
 
 		case 2 : {
-			menu_nav(1);
 			menu_pilih_lcr(2);
 			printf("TODO LAPORAN LCR\n");
 			break;
