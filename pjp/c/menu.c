@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "util.h"
+#include "lcr.h"
 
 void header(){
 	char hari[8]; 
@@ -44,10 +45,8 @@ void menu_pilih(int pilihan_menu){
 
 void menu_utama(){
 
-
 	int batasan_input = 3;
-	int pilihan = 0;
-	menu_pilih(pilihan);
+	menu_pilih(0);
 	do{
 
 		cetak("Pilih Menu : ", "angka");
@@ -66,28 +65,22 @@ void menu_utama(){
 
 		switch(pilih_menu){
 			case 1 :
-				pilihan = 1;
-				menu_pilih(pilihan);
-				printf("INI MENU 1\n");
+				lcr();
 				break;
 			case 2 :
-				pilihan = 2;
-				menu_pilih(pilihan);
+				menu_pilih(2);
 				printf("INI MENU 2\n");
 				break;
 			case 3 :
-				pilihan = 3;
-				menu_pilih(pilihan);
+				menu_pilih(3);
 				printf("INI MENU 3\n");
 				break;
 			case 4 :
-				pilihan = 4;
-				menu_pilih(pilihan);
+				menu_pilih(4);
 				printf("INI MENU 4\n");
 				break;
 			case 5 :
-				pilihan = 5;
-				menu_pilih(pilihan);
+				menu_pilih(5);
 				printf("INI MENU 5\n");
 				break;					
 		}
