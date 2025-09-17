@@ -7,7 +7,7 @@
 #include "menu.h"
 
 void menu_lcr(int pilih){
-	char *menu_arr[] = {"[1].Input UE LCR ","[2].Laporan LCR"};
+	char *menu_arr[2] = {"[1].Input UE LCR ","[2].Laporan LCR"};
 	int ukuran_array = sizeof(menu_arr) / sizeof(menu_arr[0]);
 	
 	for(int i = 0; i < ukuran_array ; ++i){
@@ -40,6 +40,8 @@ void folder_lcr(){
 	}
 }
 
+
+// pilih 1 lcr
 void inputan_ue(){
 	folder_lcr();
 
@@ -60,7 +62,6 @@ void inputan_ue(){
 		if(cek == 0){break;}
 
 	}	
-
 }
 
 //proses utama

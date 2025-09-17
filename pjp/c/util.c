@@ -38,7 +38,7 @@ void cetak(const char *pesan, const char *kondisi) {
     }
 }
 
-
+//input int
 int input_angka() {
        char buffer[100];
     int value;
@@ -72,6 +72,7 @@ int input_angka() {
     return value;
 }
 
+//input string
 void input_huruf(char *input, size_t size) {
     cetak("untuk Bulan : ", "open");
     fflush(stdout);
@@ -91,19 +92,18 @@ bool cek_bulan(const char *pilih_bulan){
     char *bulan[12]= {
         "januari","februari","maret","april","mei","juni","juli",
         "agustus","september","oktober","november","desember"};
-    
+    int cek;
     int ukuran_bulan = sizeof(bulan) / sizeof(bulan[0]);
-    int cek  = 0;
     for(int i = 0 ; i < ukuran_bulan ; i++){
         if(strcmp(bulan[i],pilih_bulan) ==0){
             cek = 1;
-            return true;
             break;
         }
     }
-    if(cek!=1){
-        return false;
+    if(cek == 1){
+        return true;
     }
+    return false;
 }
 
 
