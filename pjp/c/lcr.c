@@ -55,9 +55,11 @@ void inputan_ue(){
 			cetak("bulan tidak ditemukan\n","error");
 			cek--;
 		}
-
-		printf("membuka %s ditemukan\n",input_bulan);
-
+		else{
+		printf(" %s ditemukan\n",input_bulan);
+		//TODO MEMBUAT FILE BULAN UNTUK LCR
+		break;
+		}
 
 		if(cek == 0){break;}
 
