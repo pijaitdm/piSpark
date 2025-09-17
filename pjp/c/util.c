@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 #include <time.h>
 #include <menu.h>
 
@@ -31,41 +32,78 @@ void cetak(const char *pesan, const char *kondisi) {
     } else if (strcmp(kondisi, "error") == 0) {
         printf("\033[1;31m%s\033[0m", pesan);  // Merah terang
     } else if (strcmp(kondisi, "open") == 0) {
-        printf("\033[1;32%s\033[0m", pesan);  // Hijau terang
+        printf("\033[1;32m%s\033[0m", pesan);  // Hijau terang
     } else {
         printf("%s\n", pesan);  // Tanpa warna
     }
 }
 
 
-int input_angka(){
-
-    char buffer[100];
+int input_angka() {
+       char buffer[100];
     int value;
 
-    if(fgets(buffer, sizeof(buffer),stdin) == NULL ){
-        cetak("Inputan tidak valid!", "error");
+    fflush(stdout);
+
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+        printf("Input gagal!\n");
         return -1;
     }
 
+    // Hapus newline
     buffer[strcspn(buffer, "\n")] = '\0';
 
+    // Validasi: hanya angka (boleh negatif di awal)
     int valid = 1;
-        for (int i = 0; buffer[i]; i++) {
-            if (!isdigit(buffer[i]) && !(i == 0 && buffer[i] == '-')) {
-                valid = 0;
-                break;
-            }
+    for (int i = 0; buffer[i]; i++) {
+        if (!isdigit(buffer[i]) && !(i == 0 && buffer[i] == '-')) {
+            valid = 0;
+            break;
         }
+    }
 
-        if(!valid){
-            cetak("Inputan tidak valid!", "error");
-            return -1;
+    if (!valid) {
+        printf("Input bukan angka!\n");
+        return -1;
+    }
+
+    // Konversi ke integer
+    sscanf(buffer, "%d", &value);
+    return value;
+}
+
+void input_huruf(char *input, size_t size) {
+    cetak("untuk Bulan : ", "open");
+    fflush(stdout);
+
+    if (fgets(input, size, stdin)) {
+        input[strcspn(input, "\n")] = 0;  // Hapus newline
+    } else {
+        cetak("input gagal\n", "error");
+        input[0] = '\0';  // Kosongkan string
+    }
+}
+
+
+
+
+bool cek_bulan(const char *pilih_bulan){
+    char *bulan[12]= {
+        "januari","februari","maret","april","mei","juni","juli",
+        "agustus","september","oktober","november","desember"};
+    
+    int ukuran_bulan = sizeof(bulan) / sizeof(bulan[0]);
+    int cek  = 0;
+    for(int i = 0 ; i < ukuran_bulan ; i++){
+        if(strcmp(bulan[i],pilih_bulan) ==0){
+            cek = 1;
+            return true;
+            break;
         }
-
-    sscanf(buffer,"%d",&value);
-
-return value;
+    }
+    if(cek!=1){
+        return false;
+    }
 }
 
 
